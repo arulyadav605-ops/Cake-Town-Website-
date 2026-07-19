@@ -1,0 +1,44 @@
+/* style.css */
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.mesh-gradient {
+    background-color: #FDFBF7;
+    background-image: 
+        radial-gradient(at 100% 0%, #FCE4EC 0%, transparent 50%),
+        radial-gradient(at 0% 100%, #FCE4EC 0%, transparent 50%);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(60, 42, 33, 0.08);
+}
+
+.btn-gold {
+    background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+/* Page Section transition */
+.page-section {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

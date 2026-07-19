@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Town - Luxury Patisserie</title>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
+    <!-- Tailwind CSS (CDN for Pure HTML project) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            brown: '#3C2A21',
+                            'brown-light': '#5D4037',
+                            cream: '#FDFBF7',
+                            gold: '#D4AF37',
+                            pink: '#FF80AB',
+                            'pink-light': '#FCE4EC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-brand-brown bg-brand-cream mesh-gradient min-h-screen font-sans flex flex-col">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/40 h-20 px-6 md:px-12 flex items-center justify-between">
+        <div class="flex items-center gap-12">
+            <a href="#" onclick="showPage('home')" class="font-serif text-2xl md:text-3xl font-bold tracking-tighter">CAKE <span class="text-brand-gold">TOWN</span></a>
+            <div class="hidden lg:flex gap-8 text-[10px] uppercase tracking-widest font-bold opacity-70">
+                <a href="#" onclick="showPage('home')" class="hover:text-brand-gold transition-colors">Home</a>
+                <a href="#" onclick="showPage('menu')" class="hover:text-brand-gold transition-colors">Collections</a>
+            </div>
+        </div>
+        <div class="flex items-center gap-4 md:gap-6">
+            <button onclick="showPage('cart')" class="relative flex w-10 h-10 glass rounded-full items-center justify-center text-brand-brown hover:text-brand-gold transition-colors shadow-sm border border-white/40">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                <span id="cart-count" class="absolute -top-1 -right-1 bg-brand-gold text-white text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center shadow-sm hidden">0</span>
+            </button>
+            <button onclick="showPage('home')" class="h-10 px-6 glass rounded-full flex items-center justify-center font-bold text-[10px] uppercase tracking-widest hover:text-brand-gold transition-colors">Account</button>
+        </div>
+    </nav>
+
+    <!-- Pages Container -->
+    <main class="flex-1 mt-20">
+        
+        <!-- HOME PAGE -->
+        <div id="page-home" class="page-section">
+            <section class="px-6 md:px-12 py-12 md:py-24 flex flex-col md:flex-row gap-12 items-center relative">
+                <!-- Left: Hero Text -->
+                <div class="w-full md:w-2/5">
+                    <span class="inline-block text-brand-gold font-bold text-xs uppercase tracking-[0.3em] mb-4 italic">Est. 1992 &bull; Luxury Patisserie</span>
+                    <h2 class="font-serif text-5xl md:text-6xl leading-[1.1] mb-8 font-bold">
+                        Freshly Baked <br/><span class="text-brand-pink italic">Happiness</span> For Every Celebration
+                    </h2>
+                    <p class="text-sm md:text-base leading-relaxed opacity-60 mb-8 max-w-sm">
+                        Experience the finest artisanal cakes crafted with premium ingredients and curated with love by our master pastry chefs.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="showPage('menu')" class="btn-gold px-10 py-4 rounded-full text-xs font-bold uppercase tracking-widest text-center">Order Now</button>
+                        <button onclick="showPage('menu')" class="glass px-10 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white transition-all text-center">View Menu</button>
+                    </div>
+                </div>
+
+                <!-- Right: Catalog Preview -->
+                <div class="w-full md:w-3/5 grid grid-cols-1 sm:grid-cols-2 gap-6 h-auto md:h-[500px]">
+                    <!-- Big Feature Card -->
+                    <div class="glass rounded-[40px] p-8 flex flex-col relative overflow-hidden group cursor-pointer" onclick="showPage('menu')">
+                        <div class="absolute -right-12 -top-12 w-48 h-48 bg-brand-pink-light rounded-full blur-3xl opacity-50"></div>
+                        <div class="mb-auto z-10">
+                            <span class="bg-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-brand-gold">Wedding Special</span>
+                            <h3 class="font-serif text-2xl mt-4">Midnight Truffle Gold</h3>
+                            <p class="text-xs mt-2 opacity-50">Rich Belgian Chocolate & Edible 24k Gold</p>
+                        </div>
+                        <div class="mt-4 flex items-end justify-between z-10">
+                            <span class="text-2xl font-bold italic">₹2,499</span>
+                            <div class="w-12 h-12 rounded-full bg-brand-brown text-white flex items-center justify-center group-hover:bg-brand-gold transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                            </div>
+                        </div>
+                        <div class="mt-6 w-full h-40 bg-brand-pink-light rounded-3xl overflow-hidden shadow-sm relative">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Cake">
+                        </div>
+                    </div>
+
+                    <!-- Secondary Column -->
+                    <div class="flex flex-col gap-6">
+                        <div class="glass rounded-[40px] p-6 flex-1 flex flex-col group cursor-pointer bg-white/20" onclick="showPage('menu')">
+                            <div class="flex justify-between z-10">
+                                <span class="text-[10px] font-bold uppercase tracking-widest opacity-40">Bestseller</span>
+                                <span class="text-xs font-bold text-brand-gold">4.9 ★</span>
+                            </div>
+                            <h4 class="font-serif text-xl mt-2 z-10">Strawberry Chantilly</h4>
+                            <div class="flex-1 flex items-center justify-center py-4 relative">
+                                <div class="w-full h-24 rounded-2xl overflow-hidden shadow-sm relative z-10">
+                                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Cake">
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center z-10">
+                                <span class="font-bold">₹1,250</span>
+                                <button class="text-[10px] font-bold uppercase tracking-widest underline underline-offset-4 hover:text-brand-gold">Discover</button>
+                            </div>
+                        </div>
+                        <div class="glass rounded-[40px] p-6 flex-1 flex flex-col bg-brand-brown text-white relative overflow-hidden cursor-pointer" onclick="showPage('menu')">
+                            <h4 class="font-serif text-xl z-10">Designer Studio</h4>
+                            <p class="text-[10px] mt-2 opacity-60 leading-relaxed italic z-10">Need a custom cake for a bespoke event?</p>
+                            <button class="mt-auto border border-white/20 rounded-full py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-brand-brown transition-all z-10">Consult Designer</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- MENU PAGE -->
+        <div id="page-menu" class="page-section hidden">
+            <div class="px-6 md:px-12 py-12">
+                <div class="text-center mb-16">
+                    <h1 class="font-serif text-4xl md:text-5xl text-brand-brown mb-4">Our Menu</h1>
+                    <div class="w-16 h-1 bg-brand-gold mx-auto mb-8"></div>
+                    <p class="text-brand-brown-light max-w-2xl mx-auto opacity-80">
+                        Explore our collection of handcrafted luxury cakes, baked fresh to order.
+                    </p>
+                </div>
+                
+                <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Products rendered via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- CART PAGE -->
+        <div id="page-cart" class="page-section hidden">
+            <div class="px-6 md:px-12 py-12 max-w-6xl mx-auto">
+                <h1 class="font-serif text-4xl md:text-5xl text-brand-brown mb-12 text-center">Your Cart</h1>
+                <div class="flex flex-col lg:flex-row gap-12" id="cart-content-container">
+                    <!-- Cart content rendered via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- CHECKOUT PAGE -->
+        <div id="page-checkout" class="page-section hidden">
+            <div class="px-6 md:px-12 py-12 max-w-4xl mx-auto">
+                <h1 class="font-serif text-4xl md:text-5xl text-brand-brown mb-12 text-center">Checkout</h1>
+                <form id="checkout-form" class="glass rounded-[40px] p-8 md:p-12 border border-white/40 shadow-sm bg-white/20">
+                    <h2 class="font-serif text-2xl text-brand-brown mb-6 border-b border-brand-brown/10 pb-4">Delivery Details</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                        <div>
+                            <label class="block text-[10px] font-bold text-brand-brown mb-2 uppercase tracking-widest">Full Name</label>
+                            <input required type="text" class="w-full bg-white/40 border border-white rounded-xl px-4 py-3 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-brand-brown mb-2 uppercase tracking-widest">Phone</label>
+                            <input required type="tel" class="w-full bg-white/40 border border-white rounded-xl px-4 py-3 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-[10px] font-bold text-brand-brown mb-2 uppercase tracking-widest">Address</label>
+                            <textarea required rows="3" class="w-full bg-white/40 border border-white rounded-xl px-4 py-3 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="border-t border-brand-brown/10 pt-8 flex justify-between items-center mb-8">
+                        <span class="font-serif text-2xl">Total</span>
+                        <span class="font-bold text-3xl text-brand-gold" id="checkout-total">₹0</span>
+                    </div>
+                    <button type="submit" class="w-full btn-gold text-white px-8 py-4 rounded-full uppercase tracking-widest text-xs font-bold hover:brightness-110 transition-all shadow-md">Place Secure Order</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- SUCCESS PAGE -->
+        <div id="page-success" class="page-section hidden">
+            <div class="px-6 md:px-12 py-32 flex flex-col items-center text-center">
+                <div class="glass rounded-[40px] p-12 max-w-lg w-full flex flex-col items-center border border-white/40 shadow-sm bg-white/20">
+                    <svg class="w-24 h-24 text-green-500 mb-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h1 class="font-serif text-4xl text-brand-brown mb-4">Order Confirmed!</h1>
+                    <p class="text-brand-brown/60 mb-8 max-w-md text-sm">Thank you for choosing Cake Town. Your luxurious treats are being prepared with love.</p>
+                    <button onclick="showPage('home')" class="btn-gold text-white px-8 py-4 uppercase tracking-widest text-xs font-bold transition-all rounded-full w-full">Back to Home</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="h-20 px-6 md:px-12 border-t border-white/40 flex items-center justify-between z-10 glass mt-12 relative">
+        <div class="hidden sm:flex gap-10">
+            <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                <span class="text-[10px] font-bold uppercase tracking-wider">Live Baking</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-8 ml-auto sm:ml-0">
+            <div class="flex gap-4">
+                <a href="#" class="w-8 h-8 rounded-full bg-white/40 border border-white flex items-center justify-center hover:bg-white transition-colors"><span class="text-[10px] italic font-serif">Ig</span></a>
+                <a href="#" class="w-8 h-8 rounded-full bg-white/40 border border-white flex items-center justify-center hover:bg-white transition-colors"><span class="text-[10px] italic font-serif">Fb</span></a>
+            </div>
+            <span class="text-[9px] uppercase tracking-widest opacity-40">&copy; 2024 Cake Town</span>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
